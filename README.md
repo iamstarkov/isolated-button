@@ -1,5 +1,7 @@
 # isolated-button
 
+DEMO: [https://iamstarkov.com/isolated-button/](https://iamstarkov.com/isolated-button/)
+
 ## install
 
     git clone git@github.com:iamstarkov/isolated-button.git
