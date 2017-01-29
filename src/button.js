@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import injectSheet from 'react-jss';
+import injectSheet from './custom-react-jss';
 import cn from 'classnames';
 import c from 'color';
 

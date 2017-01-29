@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   title: 'Isolated Button, FTW',
-  components: './src/*.js',
+  components: './src/button.js',
   updateWebpackConfig(webpackConfig) {
    // Your source files folder or array of folders, should not include node_modules
    const dir = path.join(__dirname, 'src');
