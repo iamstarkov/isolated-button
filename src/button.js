@@ -120,7 +120,7 @@ styles['size-s'] = {
 }
 
 const Button = ({
-  sheet: { classes },
+  sheet: { classes, id },
   children,
   variant,
   tag: Tag,
@@ -146,6 +146,7 @@ const Button = ({
         [classes.active]: active,
         [classes.disabled]: disabled,
       })}
+      id={ id }
       onClick={ onClick }
       type={ type }
       value={ isInput ? children : null  }
