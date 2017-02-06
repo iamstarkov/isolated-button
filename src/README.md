@@ -6,6 +6,12 @@
 <Button variant="primary" onClick={() => { alert('YOLO') }}>alert('YOLO')</Button>
 ```
 
+## icon
+
+```
+<Button variant="primary" icon>icon button</Button>
+```
+
 ## Variants
 
 ```

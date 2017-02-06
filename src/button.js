@@ -5,6 +5,8 @@ import c from 'color';
 
 const merge = (x, y) => Object.assign({}, x, y);
 
+const rootNode = val => ({ rootNode: val });
+
 const theme = {};
 
 theme.color = {
@@ -119,6 +121,20 @@ styles['size-s'] = {
   borderRadius: '.2rem',
 }
 
+Object.keys(styles).forEach(k => {
+  const v = styles[k];
+  styles[k] = merge(rootNode(true), v);
+});
+
+styles.icon = merge(rootNode(false), {
+  display: 'inline-block',
+  width: '1rem',
+  height: '1rem',
+  color: 'white',
+  // marginRight: '0.3rem',
+  // verticalAlign: 'mi',
+});
+
 const Button = ({
   sheet: { classes, id },
   children,
@@ -132,6 +148,7 @@ const Button = ({
   active,
   disabled,
   onClick,
+  icon
 }) => {
   const isInput = Tag === 'input';
   const isLink = Tag === 'a';
@@ -156,6 +173,11 @@ const Button = ({
       aria-pressed={ (isLink && active) ? true : null }
       aria-disabled={ (isLink && disabled) ? true : null }
     >
+      { icon
+        ? (<span className={cn({ [classes.icon]: true })} >✓</span>)
+        : null
+      }
+      { icon ? ' ' : null }
       { !isInput ? children : null }
     </Tag>
   );
@@ -210,6 +232,10 @@ Button.propTypes = {
    * Disabled state
    */
   disabled: PropTypes.bool,
+  /**
+   * Icon
+   */
+  icon: PropTypes.bool,
 }
 
 Button.defaultProps = {
@@ -220,6 +246,7 @@ Button.defaultProps = {
   block: false,
   href: null,
   active: false,
+  icon: false,
   disabled: false,
   onClick: ()=>{},
 }
