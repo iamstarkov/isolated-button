@@ -152,6 +152,7 @@ const Button = ({
 }) => {
   const isInput = Tag === 'input';
   const isLink = Tag === 'a';
+  const iconComponent = <span className={cn({ [classes.icon]: true })} >✓</span>;
   return (
     <Tag
       className={cn({
@@ -173,12 +174,10 @@ const Button = ({
       aria-pressed={ (isLink && active) ? true : null }
       aria-disabled={ (isLink && disabled) ? true : null }
     >
-      { icon
-        ? (<span className={cn({ [classes.icon]: true })} >✓</span>)
+      { !isInput
+        ? ( icon ? [ iconComponent, ' ' ] : [] ).concat(children)
         : null
       }
-      { icon ? ' ' : null }
-      { !isInput ? children : null }
     </Tag>
   );
 };
