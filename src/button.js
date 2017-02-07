@@ -3,7 +3,7 @@ import injectSheet from './custom-react-jss';
 import cn from 'classnames';
 import c from 'color';
 
-const merge = (x, y) => Object.assign({}, x, y);
+const merge = (...xs) => Object.assign({}, ...xs);
 
 const rootNode = val => ({ rootNode: val });
 
@@ -52,7 +52,7 @@ const basic = {
 }
 
 const styles = {
-  button: merge(basic, {
+  button: merge(basic, rootNode(true), {
     display: 'inline-block',
     fontWeight: 400,
     lineHeight: 1.25,
@@ -64,66 +64,61 @@ const styles = {
     transition: 'all .2s ease-in-out',
     cursor: 'pointer',
   }),
-  block: {
+  block: merge(rootNode(true), {
     display: 'block',
     width: '100%',
-  },
-  active: {},
-  disabled: {
+  }),
+  active: rootNode(true),
+  disabled: merge(rootNode(true), {
     cursor: 'not-allowed',
     opacity: .65,
-  },
+  }),
 }
 
 Object.keys(theme.color.variant).forEach(key => {
   const variantColor = theme.color.variant[key];
-  styles[key] = {
+  styles[key] = merge(rootNode(true), {
     backgroundColor: variantColor,
     borderColor: key !== 'secondary' ? c(variantColor).darken(0.1).hex() : '#ccc',
     color: key !== 'secondary' ? theme.color.white : theme.color.grayDark,
-    '&:not($active):not($disabled):hover': {
+    '&:not($active):not($disabled):hover': merge(rootNode(true), {
       backgroundColor: c(variantColor).darken(0.2).hex(),
-    },
-    '&:not($active):not($disabled):active, &$active': {
+    }),
+    '&:not($active):not($disabled):active, &$active': merge(rootNode(true), {
       backgroundColor: c(variantColor).darken(0.3).hex(),
-    },
-  },
-  styles[key+'-outline'] = {
+    }),
+  }),
+  styles[key+'-outline'] = merge(rootNode(true), {
     backgroundColor: theme.color.white,
     borderColor: key !== 'secondary' ? c(variantColor).darken(0.1).hex() : '#ccc',
     color: key !== 'secondary' ? c(variantColor).darken(0.1).hex() : '#ccc',
-    '&:not($active):not($disabled):hover': {
+    '&:not($active):not($disabled):hover': merge(rootNode(true), {
       backgroundColor: c(variantColor).darken(0.2).hex(),
       color: key !== 'secondary' ? theme.color.white : theme.color.grayDark,
-    },
-    '&:not($active):not($disabled):active, &$active': {
+    }),
+    '&:not($active):not($disabled):active, &$active': merge(rootNode(true), {
       backgroundColor: c(variantColor).darken(0.3).hex(),
       color: key !== 'secondary' ? theme.color.white : theme.color.grayDark,
-    },
-  }
+    }),
+  })
 })
 
-styles['size-l'] = {
+styles['size-l'] = merge(rootNode(true), {
   padding: '.75rem 1.5rem',
   fontSize: '1.25rem',
   borderRadius: '.3rem',
-}
+});
 
-styles['size-m'] = {
+styles['size-m'] = merge(rootNode(true), {
   padding: '.5rem 1rem',
   fontSize: '1rem',
   borderRadius: '.25rem',
-}
+});
 
-styles['size-s'] = {
+styles['size-s'] = merge(rootNode(true), {
   padding: '.25rem .5rem',
   fontSize: '.875rem',
   borderRadius: '.2rem',
-}
-
-Object.keys(styles).forEach(k => {
-  const v = styles[k];
-  styles[k] = merge(rootNode(true), v);
 });
 
 styles.icon = merge(rootNode(false), {
@@ -131,8 +126,6 @@ styles.icon = merge(rootNode(false), {
   width: '1rem',
   height: '1rem',
   color: 'white',
-  // marginRight: '0.3rem',
-  // verticalAlign: 'mi',
 });
 
 const Button = ({
