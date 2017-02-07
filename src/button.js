@@ -121,19 +121,12 @@ styles['size-s'] = {
   borderRadius: '.2rem',
 }
 
-Object.keys(styles).forEach(k => {
-  const v = styles[k];
-  styles[k] = merge(rootNode(true), v);
-});
-
-styles.icon = merge(rootNode(false), {
+styles.icon = {
   display: 'inline-block',
   width: '1rem',
   height: '1rem',
   color: 'white',
-  // marginRight: '0.3rem',
-  // verticalAlign: 'mi',
-});
+}
 
 const Button = ({
   sheet: { classes, id },
