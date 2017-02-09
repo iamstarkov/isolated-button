@@ -63,6 +63,9 @@ const styles = {
     border: '1px solid transparent',
     transition: 'all .2s ease-in-out',
     cursor: 'pointer',
+    '&::-moz-focus-inner': {
+      all: 'initial',
+    },
   }),
   block: {
     display: 'block',
@@ -129,7 +132,7 @@ styles.icon = {
 }
 
 const Button = ({
-  sheet: { classes, id },
+  sheet: { classes },
   children,
   variant,
   tag: Tag,
@@ -157,7 +160,6 @@ const Button = ({
         [classes.active]: active,
         [classes.disabled]: disabled,
       })}
-      id={ id }
       onClick={ onClick }
       type={ type }
       value={ isInput ? children : null  }
