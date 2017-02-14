@@ -3,9 +3,9 @@ import injectSheet from './custom-react-jss';
 import cn from 'classnames';
 import c from 'color';
 
-const merge = (x, y) => Object.assign({}, x, y);
+import initize from  'jss-expand-all-initial';
 
-const rootNode = val => ({ rootNode: val });
+const merge = (x, y) => Object.assign({}, x, y);
 
 const theme = {};
 
@@ -42,7 +42,6 @@ theme.color.variant = {
 }
 
 const basic = {
-  all: 'initial',
   fontFamily: '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif',
   fontSize: 16,
   fontWeight: 400,
@@ -52,6 +51,7 @@ const basic = {
 }
 
 const styles = {
+  initize,
   button: merge(basic, {
     display: 'inline-block',
     fontWeight: 400,
@@ -152,6 +152,7 @@ const Button = ({
   return (
     <Tag
       className={cn({
+        [classes.initize]: true,
         [classes.button]: true,
         [classes[variant]]: !outline,
         [classes[variant+'-outline']]: outline,
