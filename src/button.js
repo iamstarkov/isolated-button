@@ -4,6 +4,7 @@ import cn from 'classnames';
 import c from 'color';
 
 import initize from  'jss-expand-all-initial';
+import reset from 'jss-expand-all-initial/reset';
 
 const merge = (x, y) => Object.assign({}, x, y);
 
@@ -52,6 +53,7 @@ const basic = {
 
 const styles = {
   initize,
+  reset,
   button: merge(basic, {
     display: 'inline-block',
     fontWeight: 400,
@@ -79,7 +81,6 @@ const styles = {
   link: {
     fontWeight: 'normal',
     color: theme.color.variant.primary,
-    backgroundColor: theme.color.white,
     '&:not($disabled):hover': {
       color: c(theme.color.variant.primary).darken(0.2).hex(),
       textDecoration: 'underline',
@@ -87,7 +88,6 @@ const styles = {
    },
   'link-outline': {
     color: theme.color.variant.primary,
-    backgroundColor: theme.color.white,
     '&:not($disabled):hover': {
       color: c(theme.color.variant.primary).darken(0.2).hex(),
       textDecoration: 'underline',
@@ -170,6 +170,7 @@ const Button = ({
     <Tag
       className={cn({
         [classes.initize]: true,
+        [classes.reset]: true,
         [classes.button]: true,
         [classes[variant]]: !outline,
         [classes[variant+'-outline']]: outline,
