@@ -76,6 +76,23 @@ const styles = {
     cursor: 'not-allowed',
     opacity: .65,
   },
+  link: {
+    fontWeight: 'normal',
+    color: theme.color.variant.primary,
+    backgroundColor: theme.color.white,
+    '&:not($disabled):hover': {
+      color: c(theme.color.variant.primary).darken(0.2).hex(),
+      textDecoration: 'underline',
+    },
+   },
+  'link-outline': {
+    color: theme.color.variant.primary,
+    backgroundColor: theme.color.white,
+    '&:not($disabled):hover': {
+      color: c(theme.color.variant.primary).darken(0.2).hex(),
+      textDecoration: 'underline',
+    },
+  },
 }
 
 Object.keys(theme.color.variant).forEach(key => {
