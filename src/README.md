@@ -90,34 +90,12 @@
 </div>
 ```
 
-## Active
+## Active / Disabled
 
 ```
 <div>
-  <Button active tag="a" href="#" variant="primary" size="l">Primary link</Button>
-  {'    '}
-  <Button active tag="a" href="#" variant="secondary" size="l">Link</Button>
-</div>
-```
-
-## Disabled
-
-#### Buttons
-
-```
-<div>
-  <Button disabled variant="primary" size="l">Primary button</Button>
-  {'    '}
-  <Button disabled variant="secondary" size="l">Button</Button>
-</div>
-```
-
-#### Links
-
-```
-<div>
-  <Button disabled tag="a" href="#" variant="primary" size="l">Primary link</Button>
-  {'    '}
-  <Button disabled tag="a" href="#" variant="secondary" size="l">Link</Button>
+  <Button active variant="primary" size="l">Active</Button>
+  {'  '}
+  <Button disabled variant="primary" size="l">Disabled</Button>
 </div>
 ```
