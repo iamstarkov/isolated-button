@@ -51,9 +51,11 @@ const basic = {
   boxSizing: 'border-box',
 }
 
+// max-block-size: 0;
+// min-block-size: 0;
+
 const styles = {
   initize,
-  reset,
   button: merge(basic, {
     display: 'inline-block',
     fontWeight: 400,
@@ -170,7 +172,6 @@ const Button = ({
     <Tag
       className={cn({
         [classes.initize]: true,
-        [classes.reset]: true,
         [classes.button]: true,
         [classes[variant]]: !outline,
         [classes[variant+'-outline']]: outline,
