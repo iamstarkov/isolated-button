@@ -1,5 +1,7 @@
 # isolated-button
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/iamstarkov/isolated-button.svg)](https://greenkeeper.io/)
+
 DEMO: [https://iamstarkov.com/isolated-button/](https://iamstarkov.com/isolated-button/)
 
 ## install
